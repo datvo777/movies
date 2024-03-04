@@ -1,0 +1,18 @@
+@import '../../styles/variables.scss';
+
+.search-movies {
+  .search-result {
+    width: 100%;
+    padding: 15px 10px;
+    line-height: 20px;
+    border-left: 3px solid #408BEA;
+    color: $base-font-color;
+    margin-bottom: 10px;
+  }
+  .search-no-result {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: gray;
+  }
+}

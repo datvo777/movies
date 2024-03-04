@@ -1,0 +1,9 @@
+@import '../../styles/variables.scss';
+.home {
+  padding: 20px;
+  margin: 0 auto;
+  
+  @media (min-width: $breakpoint-desktop) {
+    width: $base-container-width;
+  }
+}

@@ -1,0 +1,45 @@
+@import '../../styles/variables.scss';
+.search-bar {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: $breakpoint-tablet) {
+    margin-bottom: 20px;
+    align-items: flex-start;
+    margin-left: 0px;
+  }
+
+  input[type="text"] {
+    width: 400px;
+    height: 30px;
+    box-sizing: border-box;
+    border: none;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    &:focus {
+      outline: none;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      width: 300px;
+    }
+
+  }
+
+  button {
+    box-sizing: border-box;
+    background-color: $search-bar-btn-color;
+    height: 30px;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+    svg {
+      fill: white;
+      width: 14px;
+      height: 14px;
+    }
+  }
+ 
+}

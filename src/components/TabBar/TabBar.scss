@@ -1,0 +1,23 @@
+.tab-bar {
+  .tab-btn-group {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    button {
+      height: 50px;
+      width: 120px;
+      border: none;
+      margin-right: 10px;
+      box-sizing: border-box;
+      background-color: black;
+      color: white;
+      border-color: white;
+      cursor: pointer;
+      &.active  {
+        background-color: white;
+        color: black;
+      }
+    }
+  }
+}
