@@ -67,11 +67,12 @@ jobs:
           name: source-code
           path: .
 
-      # Set up Node.js
+      # Set up Node.js with npm caching
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'npm'
 
       # Download node_modules from setup job
       - name: Download node_modules
@@ -79,6 +80,10 @@ jobs:
         with:
           name: node-modules
           path: node_modules
+
+      # Make node_modules/.bin executable
+      - name: Make binaries executable
+        run: chmod +x node_modules/.bin/*
 
       # Build the project
       - name: Build the project
