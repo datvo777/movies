@@ -38,7 +38,7 @@ jobs:
 
       # Upload node_modules as artifact for other jobs
       - name: Upload node_modules
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: node-modules
           path: node_modules
@@ -46,7 +46,7 @@ jobs:
 
       # Upload source code as artifact
       - name: Upload source code
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: source-code
           path: |
@@ -62,7 +62,7 @@ jobs:
     steps:
       # Download source code
       - name: Download source code
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: source-code
           path: .
@@ -75,7 +75,7 @@ jobs:
 
       # Download node_modules from setup job
       - name: Download node_modules
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: node-modules
           path: node_modules
@@ -86,7 +86,7 @@ jobs:
 
       # Upload build artifacts
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-files
           path: dist
@@ -99,7 +99,7 @@ jobs:
     steps:
       # Download build artifacts
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-files
           path: dist
