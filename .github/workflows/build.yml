@@ -36,14 +36,6 @@ jobs:
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci
 
-      # Upload node_modules as artifact for other jobs
-      - name: Upload node_modules
-        uses: actions/upload-artifact@v4
-        with:
-          name: node-modules
-          path: node_modules
-          retention-days: 1
-
       # Upload source code as artifact
       - name: Upload source code
         uses: actions/upload-artifact@v4
@@ -74,16 +66,13 @@ jobs:
           node-version: 18
           cache: 'npm'
 
-      # Download node_modules from setup job
-      - name: Download node_modules
-        uses: actions/download-artifact@v4
+      # Restore cached node_modules from setup job
+      - name: Restore cached node_modules
+        uses: actions/cache/restore@v3
         with:
-          name: node-modules
           path: node_modules
-
-      # Make node_modules/.bin executable
-      - name: Make binaries executable
-        run: chmod +x node_modules/.bin/*
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          fail-on-cache-miss: true
 
       # Build the project
       - name: Build the project
