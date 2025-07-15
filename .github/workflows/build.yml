@@ -51,6 +51,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup
 
+    env:
+      APP_ENV: production
+
     steps:
       # Download source code
       - name: Download source code
@@ -85,6 +88,10 @@ jobs:
           name: build-files
           path: dist
           retention-days: 1
+      
+      # Output environment variable
+      - name: Output environment variable
+        run: echo "APP_ENV is set to $APP_ENV"
 
   deploy:
     runs-on: ubuntu-latest
