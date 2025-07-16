@@ -58,7 +58,7 @@ jobs:
           api_key: ${{ secrets.API_KEY_EXAMPLE }}
       
       - name: Use API key validation
-        uses: ./.github/js-actions
+        uses: ./.github/actions/js-actions
         with:
           api_key: ${{ env.DEV_SECRET }}
 
