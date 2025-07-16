@@ -16,7 +16,8 @@
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.22.2",
-    "sass": "^1.71.1"
+    "sass": "^1.71.1",
+    "@actions/core": "^1.10.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.202",

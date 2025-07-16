@@ -56,6 +56,17 @@ jobs:
         uses: ./.github/actions/setup-env
         with:
           api_key: ${{ secrets.API_KEY_EXAMPLE }}
+      
+      - name: Use API key validation
+        uses: ./.github/js-actions/setup-env
+        with:
+          api_key: ${{ env.DEV_SECRET }}
+
+      - name: Upload validation result
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-result
+          path: validation-result.txt
   build:
     runs-on: ubuntu-latest
     needs: setup
