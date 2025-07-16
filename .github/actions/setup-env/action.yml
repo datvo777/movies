@@ -1,0 +1,19 @@
+name: Setup Environment
+
+description: A composite action to set up environment variables and secrets.
+
+inputs:
+  api_key:
+    description: The API key to set as an environment variable.
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set environment variable
+      run: echo "APP_ENV=development" >> $GITHUB_ENV
+      shell: bash
+
+    - name: Set secret API key
+      run: echo "API_KEY=${{ inputs.api_key }}" >> $GITHUB_ENV
+      shell: bash

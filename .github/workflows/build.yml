@@ -51,6 +51,11 @@ jobs:
        # Output the secret for debugging (optional, remove in production)
       - name: Output DEV_SECRET
         run: echo "DEV_SECRET is $DEV_SECRET"
+
+      - name: Use Setup Environment Composite Action
+        uses: ./.github/actions/setup-env
+        with:
+          api_key: ${{ secrets.API_KEY_EXAMPLE }}
   build:
     runs-on: ubuntu-latest
     needs: setup
