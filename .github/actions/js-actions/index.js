@@ -1,5 +1,5 @@
-import core from '@actions/core';
-import fs from 'fs';
+const core = require('@actions/core');
+const fs = require('fs');
 
 async function run() {
   try {
