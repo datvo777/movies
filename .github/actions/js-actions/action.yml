@@ -1,6 +1,5 @@
 name: Validate API Key
-
-description: A composite action to validate the API key format and write a message to a file.
+description: A JS action to validate the API key format and write a message to a file.
 
 inputs:
   api_key:
@@ -8,17 +7,5 @@ inputs:
     required: true
 
 runs:
-  using: "composite"
-  steps:
-    - name: Validate API key format
-      run: |
-        if [[ ! "${{ inputs.api_key }}" =~ ^[a-zA-Z0-9]{32}$ ]]; then
-          echo "Invalid API key format. The key must be 32 alphanumeric characters."
-          exit 1
-        fi
-      shell: bash
-
-    - name: Write validation result to file
-      run: |
-        echo "API key validation successful: ${{ inputs.api_key }}" > validation-result.txt
-      shell: bash
+  using: node20
+  main: index.js

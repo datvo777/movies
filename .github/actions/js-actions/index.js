@@ -6,10 +6,10 @@ async function run() {
     // Get the input API key
     const apiKey = core.getInput('api_key', { required: true });
 
-    // Validate the API key format (example: must be alphanumeric and 32 characters long)
-    const isValid = /^[a-zA-Z0-9]{32}$/.test(apiKey);
+    // Validate the API key format (example: must be alphanumeric and 5 characters long)
+    const isValid = /^[a-zA-Z0-9]{5}$/.test(apiKey);
     if (!isValid) {
-      throw new Error('Invalid API key format. The key must be 32 alphanumeric characters.');
+      throw new Error('Invalid API key format. The key must be 5 alphanumeric characters.');
     }
 
     // Write a success message to a file
